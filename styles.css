@@ -76,3 +76,20 @@ footer{
   display: flex;
   flex-direction: column;
 }
+.container input{
+  min-width: 280px;
+  margin: 2rem 0 0 4rem;
+  width: 40vw;
+  max-width: 500px;
+}
+.admin{
+  align-items: center;
+}
+.input-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.controls{
+  margin-top: 2rem;
+}
