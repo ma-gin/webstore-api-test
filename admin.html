@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="admin.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="desktop-environment-unity-icon.png" type="image/x-icon">
     <title>Admin's Panel</title>
   </head>
   <body>
     <main class="container admin">
-      <div class="input-container">
+      <form class="input-container" onsubmit="formSubmit(event)">
         <div>
           <label for="name">Name</label>
           <input type="text" name="name" id="name" />
@@ -27,12 +28,18 @@
           <label for="imageUrl">Image URL</label>
           <input type="text" name="imageUrl" id="imageUrl" />
         </div>
+        <div>
+          <label for="description">Description</label>
+          <input type="textarea" name="description" id="description" />
+        </div>
+        <div class="controls">
+          <button id="delete" type="button">Remove</button>
+          <button id="reset" type="reset">Reset</button>
+          <button id="save" type="submit">Save</button>
       </div>
-      <div class="controls">
-        <button id="delete" type="button">Remove</button>
-        <button id="reset" type="reset">Reset</button>
-        <button id="save" type="submit">Save</button>
-      </div>
+      </form>
     </main>
   </body>
 </html>
+
+
