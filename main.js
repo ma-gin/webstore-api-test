@@ -1,3 +1,6 @@
+const mainContainer = document.getElementsByTagName("main")[0]
+let itemCount = mainContainer.children.length
+
 const getData = async () => {
     try {
         const response = await fetch(
@@ -11,10 +14,24 @@ const getData = async () => {
             }
         )
         const resData = await response.json()
-        console.log(resData)
+        return resData
     } catch (error){}
 }
 
-window.onload = () => {
-    getData()
+const renderItems = (arr) => {
+    const template = document.getElementsByTagName("template")[0]
+    arr.forEach(item => {
+        const newItem = template.content.cloneNode(true)
+        newItem.querySelector(".title").innerText = `${item.name}`
+        newItem.querySelector(".brand").innerText = `${item.brand}`
+        newItem.querySelector(".price").innerText = `${item.price}`
+        newItem.querySelector(".description").innerText = `${item.description}`
+        mainContainer.append(newItem)
+    })
+}
+
+window.onload = async () => {
+    const response = await getData()
+    renderItems(response)
+
 }
