@@ -1,3 +1,7 @@
+:root{
+  --admin-clr: rgb(201, 123, 60);
+}
+
 *,
 *::before,
 *::after {
@@ -37,27 +41,31 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-body{
-    background: linear-gradient(0deg, rgba(252,81,16,1) 0%, rgba(165,93,104,1) 49%, rgba(42,47,87,1) 100%);
+body {
+    background: linear-gradient(0deg, rgba(252, 83, 16, 0.4) 0%, rgba(165,93,104,0.2) 49%, rgba(42,47,87,0.25) 100%);
+}
+header{
+  padding: 1rem;
 }
 nav {
   display: flex;
   justify-content: space-between;
-  color: white;
 }
 ul {
   display: flex;
   list-style: none;
+  align-items: center;
 }
 a:visited{
   text-decoration: none;
-  color: hsla(0, 0%, 81%, 0.7);
+  color: hsla(0, 29%, 16%, 0.7);
 }
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 footer{
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
 }
@@ -75,6 +83,11 @@ footer{
 }
 .card {
   display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  position: relative;
 }
 .card-body {
   display: flex;
@@ -97,6 +110,20 @@ footer{
 }
 .controls{
   display: flex;
-  gap: 30px;
-  margin: 5rem 0 auto;
+  gap: 10px;
+  margin: 3rem 0 auto;
+}
+.controls button{
+  border: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  padding: 10px;
+}
+.admin{
+  color: var(--admin-clr);
+}
+.admin-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

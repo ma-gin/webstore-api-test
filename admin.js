@@ -21,6 +21,9 @@ const formSubmit = async (e) => {
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
       },
     })
+    // const bodyResp = await response.json()
+    // console.log(bodyResp)
+    window.location.replace("index.html")
 
   }
   catch (error) {console.log(error)}
