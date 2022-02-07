@@ -10,7 +10,6 @@
       href="/desktop-environment-unity-icon.png"
       type="image/x-icon"
     />
-    <script src="admin.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -47,5 +46,33 @@
         </div>
       </form>
     </main>
+
+    <script>
+      console.log(document.title)
+      const endpoint = "https://striveschool-api.herokuapp.com/api/product/"
+
+      const urlParams = new URLSearchParams(window.location.search)
+      const itemId = urlParams.get("itemId")
+
+      window.onload = async () => {
+        try {
+          const response = await fetch(
+            endpoint + itemId,
+            {
+              method: "GET",
+              headers: {
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
+              },
+            }
+          )
+          const resData = await response.json()
+          console.log(resData)
+          return resData
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    </script>
   </body>
 </html>
