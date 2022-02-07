@@ -1,6 +1,3 @@
-const mainContainer = document.getElementsByTagName("main")[0]
-let itemCount = mainContainer.children.length
-
 const getData = async () => {
     try {
         const response = await fetch(
@@ -15,10 +12,11 @@ const getData = async () => {
         )
         const resData = await response.json()
         return resData
-    } catch (error){}
+    } catch (error){console.log(error)}
 }
 
 const renderItems = (arr) => {
+    const mainContainer = document.getElementsByTagName("main")[0]
     const template = document.getElementsByTagName("template")[0]
     arr.forEach(item => {
         const newItem = template.content.cloneNode(true)
@@ -26,6 +24,7 @@ const renderItems = (arr) => {
         newItem.querySelector(".brand").innerText = `${item.brand}`
         newItem.querySelector(".price").innerText = `${item.price}`
         newItem.querySelector(".description").innerText = `${item.description}`
+        newItem.querySelector(".admin-btn").setAttribute("href", `/details.html?itemId=${item._id}`)
         mainContainer.append(newItem)
     })
 }
@@ -33,5 +32,4 @@ const renderItems = (arr) => {
 window.onload = async () => {
     const response = await getData()
     renderItems(response)
-
 }

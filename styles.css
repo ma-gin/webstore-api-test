@@ -10,8 +10,7 @@
 * {
   margin: 0;
 }
-html,
-body {
+html{
   height: 100%;
 }
 body {
@@ -42,7 +41,7 @@ h6 {
   overflow-wrap: break-word;
 }
 body {
-    background: linear-gradient(0deg, rgba(252, 83, 16, 0.4) 0%, rgba(165,93,104,0.2) 49%, rgba(42,47,87,0.25) 100%);
+    background: linear-gradient(0deg, rgba(252, 83, 16, 0.4) 0%, rgba(165,93,104,0.2) 50%, rgba(42,47,87,0.25) 100%);
 }
 header{
   padding: 1rem;
@@ -55,6 +54,9 @@ ul {
   display: flex;
   list-style: none;
   align-items: center;
+}
+a{
+  text-decoration: none;
 }
 a:visited{
   text-decoration: none;
