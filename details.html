@@ -48,7 +48,6 @@
     </main>
 
     <script>
-      console.log(document.title)
       const endpoint = "https://striveschool-api.herokuapp.com/api/product/"
 
       const urlParams = new URLSearchParams(window.location.search)
@@ -66,9 +65,8 @@
               },
             }
           )
-          const resData = await response.json()
-          console.log(resData)
-          return resData
+          const resItem = await response.json()
+          document.title = resItem.name
         } catch (error) {
           console.log(error)
         }
