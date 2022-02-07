@@ -45,7 +45,7 @@ const deleteItem = async () => {
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
       },
     })
-    document.getElementById("delete").classList.remove("hide")
+    document.getElementById("remove").classList.remove("hide")
   } catch (error) {
     console.log(error)
   } finally {
@@ -58,6 +58,7 @@ const deleteItem = async () => {
 window.onload = async () => {
   try {
     if (itemId) {
+      document.getElementById("delete").classList.remove("hide")
       const response = await fetch(customUrl, {
         method: "GET",
         headers: {

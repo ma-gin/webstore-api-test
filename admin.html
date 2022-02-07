@@ -18,7 +18,7 @@
       <a href="/index.html">Home</a>
       <div id="update" class="alert hide">Item Updated Successfully</div>
       <div id="create" class="alert hide">Item Created Successfully</div>
-      <div id="delete" class="alert hide del">Item Deleted Successfully</div>
+      <div id="remove" class="alert hide del">Item Deleted Successfully</div>
     </header>
     <main class="container admin">
       <form class="input-container" onsubmit="formSubmit(event)">
@@ -43,7 +43,7 @@
           <input type="textarea" name="description" id="description" />
         </div>
         <div class="controls">
-          <button id="delete" type="button" onclick="deleteItem()">
+          <button id="delete" class="hide" type="button" onclick="deleteItem()">
             Remove
           </button>
           <button id="reset" type="reset">Reset</button>
