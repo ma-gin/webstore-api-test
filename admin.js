@@ -1,3 +1,8 @@
+const endpoint = "https://striveschool-api.herokuapp.com/api/product/"
+const itemId = new URLSearchParams(window.location.search).get("itemId")
+const customUrl = itemId ? endpoint + itemId : endpoint
+const method = itemId ? "PUT" : "POST"
+
 const formSubmit = async (e) => {
   e.preventDefault()
 
@@ -13,7 +18,7 @@ const formSubmit = async (e) => {
 
   try {
     const response = await fetch(baseUrl, {
-     method: "POST",
+      method: method,
       body: JSON.stringify(product),
       headers: {
         "Content-Type": "application/json",
@@ -21,10 +26,44 @@ const formSubmit = async (e) => {
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
       },
     })
-    // const bodyResp = await response.json()
-    // console.log(bodyResp)
     window.location.replace("index.html")
-
+  } catch (error) {
+    console.log(error)
   }
-  catch (error) {console.log(error)}
+}
+
+window.onload = async () => {
+  try {
+    if (itemId) {
+      const response = await fetch(customUrl, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
+        },
+      })
+      const { name, brand, price, imageUrl, description } =
+        await response.json()
+      document.title = name
+      document
+        .getElementsByTagName("input")[0]
+        .setAttribute("value", `${name}`)
+      document
+        .getElementsByTagName("input")[1]
+        .setAttribute("value", `${brand}`)
+      document
+        .getElementsByTagName("input")[2]
+        .setAttribute("value", `${price}`)
+      document
+        .getElementsByTagName("input")[3]
+        .setAttribute("value", `${imageUrl}`)
+      document
+        .getElementsByTagName("input")[4]
+        .setAttribute("value", `${description}`)
+      document.getElementById("reset").classList.add("hide")
+      document.getElementById("save").innerText = "Update"
+    }
+  } catch (err) {
+    console.log(err)
+  }
 }

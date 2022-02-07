@@ -24,7 +24,7 @@ const renderItems = (arr) => {
         newItem.querySelector(".brand").innerText = `${item.brand}`
         newItem.querySelector(".price").innerText = `${item.price}`
         newItem.querySelector(".description").innerText = `${item.description}`
-        newItem.querySelector(".admin-btn").setAttribute("href", `/details.html?itemId=${item._id}`)
+        newItem.querySelector(".admin-btn").setAttribute("href", `/admin.html?itemId=${item._id}`)
         mainContainer.append(newItem)
     })
 }
