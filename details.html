@@ -41,7 +41,6 @@
         </div>
         <div class="controls">
           <button id="delete" type="button">Remove</button>
-          <button id="reset" type="reset">Reset</button>
           <button id="save" type="submit">Save</button>
         </div>
       </form>
@@ -53,25 +52,38 @@
       const urlParams = new URLSearchParams(window.location.search)
       const itemId = urlParams.get("itemId")
 
+      const formSubmit = async (e) => {
+        e.preventDefault
+
+
+      }
+
       window.onload = async () => {
         try {
-          const response = await fetch(
-            endpoint + itemId,
-            {
-              method: "GET",
-              headers: {
-                Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
-              },
-            }
-          )
-          const resItem = await response.json()
-          document.title = resItem.name
-          document.getElementsByTagName("input")[0].setAttribute("value", `${resItem.name}`)
-          document.getElementsByTagName("input")[1].setAttribute("value", `${resItem.brand}`)
-          document.getElementsByTagName("input")[2].setAttribute("value", `${resItem.price}`)
-          document.getElementsByTagName("input")[3].setAttribute("value", `${resItem.imageUrl}`)
-          document.getElementsByTagName("input")[4].setAttribute("value", `${resItem.description}`)
+          const response = await fetch(endpoint + itemId, {
+            method: "GET",
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
+            },
+          })
+          const {name, brand, price, imageUrl, description} = await response.json()
+          document.title = name
+          document
+            .getElementsByTagName("input")[0]
+            .setAttribute("value", `${name}`)
+          document
+            .getElementsByTagName("input")[1]
+            .setAttribute("value", `${brand}`)
+          document
+            .getElementsByTagName("input")[2]
+            .setAttribute("value", `${price}`)
+          document
+            .getElementsByTagName("input")[3]
+            .setAttribute("value", `${imageUrl}`)
+          document
+            .getElementsByTagName("input")[4]
+            .setAttribute("value", `${description}`)
         } catch (error) {
           console.log(error)
         }
