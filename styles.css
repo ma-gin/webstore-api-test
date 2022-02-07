@@ -50,6 +50,7 @@ body {
 }
 header {
   padding: 1rem;
+  height: 10vh;
 }
 nav {
   display: flex;
