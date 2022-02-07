@@ -1,4 +1,4 @@
-:root{
+:root {
   --admin-clr: rgb(201, 123, 60);
 }
 
@@ -10,7 +10,7 @@
 * {
   margin: 0;
 }
-html{
+html {
   height: 100%;
 }
 body {
@@ -41,9 +41,14 @@ h6 {
   overflow-wrap: break-word;
 }
 body {
-    background: linear-gradient(0deg, rgba(252, 83, 16, 0.4) 0%, rgba(165,93,104,0.2) 50%, rgba(42,47,87,0.25) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(252, 83, 16, 0.4) 0%,
+    rgba(165, 93, 104, 0.2) 50%,
+    rgba(42, 47, 87, 0.25) 100%
+  );
 }
-header{
+header {
   padding: 1rem;
 }
 nav {
@@ -55,18 +60,18 @@ ul {
   list-style: none;
   align-items: center;
 }
-a{
+a {
   text-decoration: none;
 }
-a:visited{
+a:visited {
   text-decoration: none;
-  color: hsla(0, 29%, 16%, 0.7);
+  color: inherit;
 }
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
-footer{
+footer {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
@@ -79,7 +84,7 @@ footer{
   width: 82%;
   max-width: 1320px;
 }
-.nav-link{
+.nav-link {
   text-decoration: none;
   margin-inline-end: 1rem;
 }
@@ -95,47 +100,60 @@ footer{
   display: flex;
   flex-direction: column;
 }
-.container input{
+.container input {
   min-width: 280px;
   margin: 2rem 0 0 4rem;
   width: 40vw;
   max-width: 500px;
 }
-.admin{
+.admin {
   align-items: center;
 }
-.input-container{
+.input-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-top: 20vh;
 }
-.controls{
+.controls {
   display: flex;
   gap: 10px;
   margin: 3rem 0 auto;
 }
-.controls button{
+.controls button {
   border: none;
   border-radius: 6px;
   white-space: nowrap;
   padding: 10px;
 }
-.admin{
+.admin {
   color: var(--admin-clr);
 }
-.admin-btn{
+.admin-btn {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-.item-details{
+.item-details {
   margin-top: 5rem;
 }
-.item-details p{
+.item-details p {
   color: black;
   margin-bottom: 1rem;
 }
-.hide{
+.hide {
   display: none;
+}
+.alert{
+  width: 60%;
+  padding: 1rem;
+  background-color: hsla(120, 63%, 58%, 0.8);
+  color: white;
+  font-weight: bolder;
+  margin: 0 auto 3rem auto;
+  border-radius: 4px;
+  border: 2px solid white;
+}
+.del{
+  background-color: hsla(0, 87%, 54%, 0.82);
 }
